@@ -2,6 +2,10 @@ __pycache__/
 *.pyc
 .venv/
 .env
-models/
-videos/
 .DS_Store
+*.db
+uploads/
+artifacts/
+*.mp4
+*.mov
+*.avi
