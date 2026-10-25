@@ -1,0 +1,4 @@
+{
+  "frame_001": {"shoulder":[0,0],"hip":[0,2],"knee":[1,4],"ankle":[2,5]},
+  "frame_002": {"shoulder":[0,0],"hip":[0,2],"knee":[0,4],"ankle":[0,6]}
+}
