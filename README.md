@@ -1,23 +1,27 @@
 # Football Posture Analysis
 
-A deep-learning-inspired computer-vision portfolio project for analysing football player posture from body keypoints and classifying movement patterns.
+A complete computer-vision portfolio system for converting player body keypoints into interpretable posture features, classifications, persistent analysis records and reviewable reports.
 
-## Features
-- 2D pose/keypoint representation
-- joint-angle calculation
-- posture feature extraction
-- interpretable posture classification baseline
-- synthetic keypoint samples
-- tests, CI, architecture and technical report
+## Included
+- 2D pose/keypoint geometry and joint-angle extraction
+- interpretable posture-classification baseline
+- synthetic keypoint examples
+- SQLite database for sessions, frames, metrics and predictions
+- architecture/data-flow/ER diagrams
+- automated geometry and storage tests
+- CI
+- interface, deployment, security and model-card docs
+- full technical report
 
 ## Architecture
 ```mermaid
 flowchart LR
-  V[Video frame] --> P[Pose estimator]
+  V[Video / frame] --> P[Pose estimator]
   P --> K[Body keypoints]
   K --> F[Angles + posture features]
   F --> C[Posture classifier]
-  C --> R[Player posture report]
+  C --> DB[(Analysis database)]
+  DB --> R[Player posture report]
 ```
 
 ## Run
@@ -26,4 +30,9 @@ python demo.py
 python -m unittest discover -s tests -v
 ```
 
-A production DL version would connect the feature layer to a trained pose-estimation and temporal classification model. This repository does not claim benchmark accuracy without a documented dataset and evaluation run.
+## Database
+```bash
+python -c "from src.storage import init_db; init_db('posture.db', seed=True)"
+```
+
+A full deep-learning deployment would add trained pose-estimation and temporal models. This repository intentionally does not claim benchmark accuracy without a documented real dataset and evaluation run.
